@@ -34,4 +34,9 @@ class BannerBaruModel extends Model
 
         return $this->where(['id_banner' => $id_banner])->first();
     }
+
+    public function ubah($data, $id_banner)
+    {
+        return $this->builder->update($data, ['id_banner' => $id_banner]);
+    }
 }

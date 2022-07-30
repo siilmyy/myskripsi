@@ -34,4 +34,9 @@ class PromoBaruModel extends Model
 
         return $this->where(['id_promo' => $id_promo])->first();
     }
+
+    public function ubah($data, $id_promo)
+    {
+        return $this->builder->update($data, ['id_promo' => $id_promo]);
+    }
 }

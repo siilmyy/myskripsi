@@ -122,33 +122,21 @@ class Transaksi extends BaseController
     }
 
 
-    public function update()
+    public function update($id_banner)
     {
-        $id = $this->request->uri->getSegment(3);
-        $modeltransaksi = new \App\Models\TransaksiModel();
-        $transaksi = $modeltransaksi->find($id);
+        $stok = $this->request->getPost('stok');
+        $this->bModel->save([
+            'id_banner' => $id_banner,
+            'stok' => $stok
+        ]);
+    }
 
-        if ($this->request->getPost()) {
-            $data = $this->request->getPost();
-            $this->validation->run($data, 'transaksiupdate');
-            $errors = $this->validation->getErrors();
-
-            if (!$errors) {
-                $b = new \App\Entities\transaksi();
-                $b->id_transaksi = $id;
-                $b->fill($data);
-
-                $modeltransaksi->save($b);
-
-                $segments = ['transaksi', 'history', $id];
-
-
-                return redirect()->to(base_url($segments));
-            }
-        }
-
-        return view('transaksi/update', [
-            'transaksi' => $transaksi,
+    public function update_promo($id_promo)
+    {
+        $stok = $this->request->getPost('stok');
+        $this->pmModel->save([
+            'id_promo' => $id_promo,
+            'stok' => $stok
         ]);
     }
 
