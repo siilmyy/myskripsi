@@ -54,7 +54,7 @@
                                 <input type="text" class="form-control" id="sisa" name="sisa" value="<?= $banner['stok']; ?>" disabled>
                             </div>
                             <div class=" form-group">
-                                <label for="jumlah">Jumlah Pembelian</label>
+                                <label for="jumlah">Jumlah Pembelian Tiket</label>
                                 <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Enter jumlah" value="1" min="1" max="<?= $banner['stok']; ?>">
                             </div>
                             <div class="form-group">
